@@ -21,7 +21,7 @@ Installation
 Usage
 -----
 
-.. code-block:: python
+.. code:: python
 
     import clock
 
