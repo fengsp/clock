@@ -21,8 +21,8 @@ Installation
 Usage
 -----
 
-::
-    
+.. code-block:: python
+
     import clock
 
     # Internally always use UTC, convert everything else to UTC
@@ -67,6 +67,7 @@ Usage
     # get local timezone
     >>> clock.localtimezone
     <DstTzInfo 'Asia/Harbin' LMT+8:27:00 STD>
+
 
 Better
 ------
