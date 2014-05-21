@@ -8,6 +8,9 @@ Guideline
 
 **Always handle time in UTC.**
 
+If you feel confused, read `Dealing with Timezones in Python 
+<http://lucumr.pocoo.org/2011/7/15/eppur-si-muove/>`_.
+
 Installation
 ------------
 
