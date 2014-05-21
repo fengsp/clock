@@ -12,15 +12,19 @@ from datetime import datetime, timedelta
 import calendar
 
 import pytz
-import dateutil
 from tzlocal import get_localzone
 
 
-def utc(*args, **kwargs):
+def utc(dt=None, timezone=None):
     """Convert to UTC.
     """
-    _from_local()
-    _from_timestamp()
+    if dt:
+        if isinstance(dt, datetime):
+            return _from_local(dt, timezone)
+        elif isinstance(dt, (int, float, basestring)):
+            return _from_timestamp(float(dt))
+    else:
+        return now()
 
 
 def _from_local(dt, timezone=None):
@@ -43,10 +47,10 @@ def _from_local(dt, timezone=None):
 def _from_timestamp(timestamp):
     """Convert a POSIX timestamp to the corresponding UTC datetime.
     """
-    return datetime.utcfromtimestamp(float(timestamp))
+    return datetime.utcfromtimestamp(timestamp)
 
 
-def to(dt, timezone):
+def local(dt, timezone):
     """Convert datetime in UTC to a local datetime(timezone aware).
     """
     if dt.tzinfo is not None:
@@ -64,11 +68,11 @@ def to_timestamp(dt):
 def format(dt, timezone, fmt=None):
     """Convert datetime in UTC to a local datetime and show it.
     """
-    local = to(dt, timezone)
+    loc_dt = local(dt, timezone)
     if fmt is None:
-        return local.isoformat()
+        return loc_dt.isoformat()
     else:
-        return local.strftime(fmt)
+        return loc_dt.strftime(fmt)
 
 
 now  = datetime.utcnow

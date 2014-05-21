@@ -2,7 +2,7 @@
 Clock
 -----
 
-Clock is a nice datetime replacement.
+Clock is a nice datetime practice.
 
 Links
 `````
@@ -16,7 +16,7 @@ from setuptools import setup
 
 
 setup(
-    name='Clock',
+    name='clock',
     version='0.1',
     url='https://github.com/fengsp/clock',
     license='BSD',
@@ -27,8 +27,11 @@ setup(
     py_modules=['clock'],
     zip_safe=False,
     platforms='any',
+    install_requires=[
+        'pytz>=0a',
+        'tzlocal>=1.1.1'
+    ],
     classifiers=[
-        'Development Status :: 1 - Planning',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Programming Language :: Python',
